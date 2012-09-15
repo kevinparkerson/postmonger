@@ -32,25 +32,19 @@
         var to = options.to || '*';
         var self = this;
 
-        //No connection found
-        if(connect && !connect.postMessage){
-            //If string, grab based on id
-            if(typeof(connect)==='string'){
-                connect = document.getElementById(connect);
-            }
-            //If no connection, check for jquery object and/or iframe
-            if(connect && !connect.postMessage){
-                if(connect.jquery){
-                    connect = connect.get(0);
-                }
-                if(connect.tagName && connect.tagName.toLowerCase()==='iframe'){
-                    connect = connect.contentWindow || connect.contentDocument;
-                }
-                //If still no connection, try connecting to parent window if allowed
-                if(connect && !connect.postMessage){
-                    connect = _window.parent;
-                }
-            }
+        //If string, grab based on id
+        if(typeof(connect)==='string'){
+            connect = document.getElementById(connect);
+        }
+
+        //If no connection, check for jquery object
+        if(connect && !connect.postMessage && connect.jquery){
+            connect = connect.get(0);
+        }
+
+        //If still no connection, check for iframe
+        if(connect && !connect.postMessage && (connect.contentWindow || connect.contentDocument)){
+            connect = connect.contentWindow || connect.contentDocument;
         }
 
         //Throw warning if connection could not be made
