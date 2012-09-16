@@ -188,6 +188,9 @@ section.version {
     font-style: italic;
     text-align: center;
 }
+section.version span {
+    padding: 0 8px;
+}
 strong {
     font-weight: bold
 }
