@@ -15,10 +15,10 @@ blockquote:before, blockquote:after, q:before, q:after {
     content: none;
 }
 header h1 {
-    font-family: Arial, serif;
+    font-family: 'Electrolize', sans-serif;
     font-weight: 900;
     letter-spacing: -1px;
-    font-size: 48px;
+    font-size: 52px;
     color: #303030;
     line-height: 1.2;
 }
@@ -90,7 +90,7 @@ a {
     color: #e66c00
 }
 header {
-    padding-top: 35px;
+    padding-top: 28px;
     padding-bottom: 25px;
 }
 #container {
@@ -105,7 +105,7 @@ header {
     margin: 0 auto;
 }
 #downloads {
-    margin-bottom: 40px
+    margin-bottom: 12px;
 }
 a.button {
     -moz-border-radius: 30px;
@@ -179,6 +179,12 @@ hr {
     padding-bottom: 1em;
     border: none;
     background: transparent url('../images/hr.png') 50% 0 no-repeat;
+}
+section.version {
+    color: #AAAAAA;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
 }
 strong {
     font-weight: bold
@@ -286,7 +292,7 @@ footer {
         padding-bottom: 10px;
     }
     #downloads {
-        margin-bottom: 25px
+        margin-bottom: 25px;
     }
     #download-source,
     #download-minified {
