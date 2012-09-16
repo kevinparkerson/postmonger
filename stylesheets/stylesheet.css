@@ -14,24 +14,15 @@ blockquote:before, blockquote:after, q:before, q:after {
     content: '';
     content: none;
 }
-header h1 {
-    color: #303030;
-    font-family: 'Electrolize',sans-serif;
-    font-size: 82px;
-    font-weight: 900;
-    letter-spacing: -1px;
-    line-height: 70px;
-    margin-left: 66px;
-    min-height: 64px;
-}
 header h2 {
-    letter-spacing: -1px;
-    font-size: 21px;
-    color: #aaa;
+    color: #AAAAAA;
+    font-size: 20px;
     font-weight: normal;
-    line-height: 1.3;
+    letter-spacing: -1px;
+    line-height: 0;
+    padding-bottom: 6px;
+    padding-top: 10px;
     text-align: center;
-    padding-top: 16px;
 }
 footer a {
     color: #666
@@ -94,8 +85,8 @@ a {
     color: #e66c00
 }
 header {
-    padding-top: 28px;
-    padding-bottom: 18px;
+    padding: 28px 0 18px;
+    text-align: center;
 }
 #container {
     background: transparent url(../images/highlight-bg.jpg) 50% 0 no-repeat;
@@ -109,24 +100,22 @@ header {
     margin: 0 auto;
 }
 #downloads {
-    margin-bottom: 12px;
-}
-#logo {
-    float: left;
+    margin-bottom: 13px;
+    text-align: center;
 }
 a.button {
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    border-radius: 30px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
     border: solid 1px #8c3800;
     color: #eee;
     line-height: 25px;
     font-weight: bold;
     font-size: 15px;
     padding: 12px 36px;
-    display: block;
-    float: left;
-    margin-right: 14px;
+    display: inline-block;
+    margin-right: 8px;
+    width: 192px;
     background: #E66C00; /* Old browsers */
     background: -moz-linear-gradient(top,  #E66C00 0%, #D35400 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E66C00), color-stop(100%,#D35400)); /* Chrome,Safari4+ */
@@ -151,6 +140,12 @@ a.button span {
     display: block;
     height: 23px;
 }
+
+#downloads a.button {
+    padding: 12px 0;
+    width: 192px;
+}
+
 #view-on-github {
     margin-right: 0
 }
@@ -227,13 +222,13 @@ h2 {
 }
 h3 {
     color: #e66c00;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
 }
 h4 {
-    font-size: 16px;
-    color: #303030;
+    font-size: 18px;
+    color: #dd6000;
     font-weight: bold;
 }
 h5 {
