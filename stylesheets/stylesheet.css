@@ -15,12 +15,14 @@ blockquote:before, blockquote:after, q:before, q:after {
     content: none;
 }
 header h1 {
-    font-family: 'Electrolize', sans-serif;
+    color: #303030;
+    font-family: 'Electrolize',sans-serif;
+    font-size: 82px;
     font-weight: 900;
     letter-spacing: -1px;
-    font-size: 52px;
-    color: #303030;
-    line-height: 1.2;
+    line-height: 70px;
+    margin-left: 66px;
+    min-height: 64px;
 }
 header h2 {
     letter-spacing: -1px;
@@ -28,6 +30,8 @@ header h2 {
     color: #aaa;
     font-weight: normal;
     line-height: 1.3;
+    text-align: center;
+    padding-top: 10px;
 }
 footer a {
     color: #666
@@ -106,6 +110,9 @@ header {
 }
 #downloads {
     margin-bottom: 12px;
+}
+#logo {
+    float: left;
 }
 a.button {
     -moz-border-radius: 30px;
