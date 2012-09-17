@@ -31,7 +31,7 @@
         root.Postmonger = previous;
         return this;
     };
-    Postmonger.version = '1.0.0';
+    Postmonger.version = '0.0.9';
 
     //Create a new Postmonger Connection
     Connection = Postmonger.Connection = function(options){
