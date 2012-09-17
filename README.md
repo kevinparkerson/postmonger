@@ -1,6 +1,6 @@
-## [Postmonger](http://kevinparkerson.github.com/postmonger/)
+## [Postmonger.js](http://kevinparkerson.github.com/postmonger/)
 
-Lightweight Javascript utility to make cross-domain messaging simple.
+An ultra-lightweight Javascript utility for simplified cross-domain messaging.
 
 For docs, examples, and more see:
 http://kevinparkerson.github.com/postmonger/
