@@ -1,0 +1,4 @@
+.DS_Store
+.idea
+build.sh
+node_modules/
