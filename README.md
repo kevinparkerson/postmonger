@@ -2,7 +2,6 @@
 
 Lightweight Javascript utility to make cross-domain messaging simple.
 
-
 For docs, examples, and more see:
 http://kevinparkerson.github.com/postmonger/
 
