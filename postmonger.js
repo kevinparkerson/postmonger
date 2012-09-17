@@ -59,8 +59,8 @@
 
         //Throw warning if connection could not be made
         if(!(connect && connect.postMessage)){
-            if(window.console && window.console.warn){
-                window.console.warn(' Warning: Postmonger could not establish connection with ', options.connect);
+            if(_window.console && _window.console.warn){
+                _window.console.warn(' Warning: Postmonger could not establish connection with ', options.connect);
             }
             return false;
         }
@@ -239,8 +239,8 @@
 
         //Throw warning if window.addEventListener could not be found
         if(!addEventListener){
-            if(window.console && window.console.warn){
-                window.console.warn(' Warning: Postmonger could not listen for messages on this window.');
+            if(_window.console && _window.console.warn){
+                _window.console.warn(' Warning: Postmonger could not listen for messages on this window.');
             }
             return false;
         }
