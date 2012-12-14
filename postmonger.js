@@ -16,13 +16,14 @@
         root.Postmonger = factory(root);
     }
 }(this, function(root){
+    var exports = exports || undefined;
     var Postmonger;
     var previous = root.Postmonger;
     var _window = (root.addEventListener) ? root : window;
     var Connection, Events, Session;
 
     //Set up Postmonger namespace, provide noConflict support, and version
-    if (typeof exports !== 'undefined') {
+    if (typeof(exports) !== 'undefined') {
         Postmonger = exports;
     } else {
         Postmonger = {};
@@ -31,11 +32,11 @@
         root.Postmonger = previous;
         return this;
     };
-    Postmonger.version = '0.0.9';
+    Postmonger.version = '0.0.10';
 
     //Create a new Postmonger Connection
     Connection = Postmonger.Connection = function(options){
-        options = (options === Object(options)) ? options : {};
+        options = (typeof(options)==='object') ? options : {};
 
         var connect = options.connect || _window.parent;
         var from = options.from || '*';
@@ -88,7 +89,7 @@
                 return Object.keys(obj);
             }
 
-            if (obj !== Object(obj)){
+            if (typeof(obj)!=='object'){
                 throw new TypeError('Invalid object');
             }
 
@@ -200,7 +201,7 @@
         };
 
         return self;
-    }
+    };
 
     //Create a new Postmonger Session
     Session = Postmonger.Session = function(){
