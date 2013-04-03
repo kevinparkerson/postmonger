@@ -39,18 +39,22 @@
 
                     connection1.on('test1', function(message){
                         $('#console').append('<div>' + message + '</div>');
+                        connection1.end();
                     });
 
                     connection2.on('test1', function(message){
                         $('#console').append('<div>' + message + '</div>');
+                        connection2.end();
                     });
 
                     connection3.on('test1', function(message){
                         $('#console').append('<div>' + message + '</div>');
+                        connection3.end();
                     });
 
                     connection4.on('test2', function(message){
                         $('#console').append('<div>' + message + '</div>');
+                        connection4.end();
                     });
 
                     connection1.trigger('test1', 'parent test1 received');

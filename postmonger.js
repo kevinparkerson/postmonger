@@ -19,7 +19,7 @@
     var exports = exports || undefined;
     var Postmonger;
     var previous = root.Postmonger;
-    var _window = (root.addEventListener) ? root : window;
+    var _window = (root.addEventListener || root.attachEvent) ? root : window;
     var Connection, Events, Session;
 
     //Set up Postmonger namespace, provide noConflict support, and version
@@ -205,12 +205,10 @@
 
     //Create a new Postmonger Session
     Session = Postmonger.Session = function(){
-        var addEventListener = _window.addEventListener || _window.attachEvent;
         var args = (arguments.length>0) ? Array.prototype.slice.call(arguments, 0) : [{}];
         var connections = [];
         var incoming = new Events();
         var outgoing = new Events();
-        var removeEventListener = _window.removeEventListener || _window.detachEvent;
         var self = this;
         var connection, i, j, l, ln, postMessageListener;
 
@@ -221,7 +219,11 @@
         self.end = function(){
             incoming.off();
             outgoing.off();
-            removeEventListener('message', postMessageListener, false);
+            if(_window.removeEventListener){
+                _window.removeEventListener('message', postMessageListener, false);
+            }else if(_window.detachEvent){
+                _window.detachEvent('onmessage', postMessageListener);
+            }
             return self;
         };
 
@@ -243,14 +245,6 @@
                     connections.push(connection);
                 }
             }
-        }
-
-        //Throw warning if window.addEventListener could not be found
-        if(!addEventListener){
-            if(_window.console && _window.console.warn){
-                _window.console.warn(' Warning: Postmonger could not listen for messages on this window.');
-            }
-            return false;
         }
 
         //Listener for incoming messages
@@ -298,8 +292,18 @@
             //Send the message
             incoming['trigger'].apply(root, message);
         };
+
         //Add the listener
-        _window.addEventListener('message', postMessageListener, false);
+        if(_window.addEventListener){
+            _window.addEventListener('message', postMessageListener, false);
+        }else if(_window.attachEvent){
+            _window.attachEvent('onmessage', postMessageListener);
+        }else{
+            if(_window.console && _window.console.warn){
+                _window.console.warn('WARNING: Postmonger could not listen for messages on window %o', _window);
+            }
+            return false;
+        }
 
         //Sending outgoing messages
         outgoing.on('all', function(){
