@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Postmonger - Test iframe 2</title>
+
+    <!--Scripts-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../postmonger.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            var connection = new Postmonger.Session();
+
+            connection.on('test1', function(message){
+                $('#console').append('<div>' + message + '</div>');
+
+                connection.trigger('test1', 'iframe3 test1 received');
+            });
+
+            connection.on('test2', function(message){
+                $('#console').append('<div>' + message + '</div>');
+
+                connection.trigger('test2', 'iframe3 test2 received');
+            });
+        });
+    </script>
+
+    <!--Styles-->
+    <style type="text/css">
+        .console {
+            border: 1px solid #f0b1b7;
+            margin: 0 20px 20px;
+            min-height: 80px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="console" id="console"></div>
+</body>
+</html>

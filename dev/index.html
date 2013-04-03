@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Postmonger - Test Harness</title>
+
+    <!--Scripts-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../postmonger.js"></script>
+        <script type="text/javascript">
+            $(window).on('load', function(){
+                setTimeout(function(){
+                    var connection1 = new Postmonger.Session({
+                        connect: $('#iframe1')
+                    });
+
+                    var connection2 = new Postmonger.Session({
+                        connect: $('#iframe2')//,
+                        //from: 'http://localhost:8080'
+                    });
+
+                    var connection3 = new Postmonger.Session({
+                        connect: $('#iframe3')//,
+                        //to: 'http://loalhost:8080'
+                    });
+
+                    var connection4 = new Postmonger.Session(
+                            {
+                                connect: $('#iframe1')
+                            },
+                            {
+                                connect: $('#iframe2')
+                            },
+                            {
+                                connect: $('#iframe3')
+                            }
+                    );
+
+                    connection1.on('test1', function(message){
+                        $('#console').append('<div>' + message + '</div>');
+                    });
+
+                    connection2.on('test1', function(message){
+                        $('#console').append('<div>' + message + '</div>');
+                    });
+
+                    connection3.on('test1', function(message){
+                        $('#console').append('<div>' + message + '</div>');
+                    });
+
+                    connection4.on('test2', function(message){
+                        $('#console').append('<div>' + message + '</div>');
+                    });
+
+                    connection1.trigger('test1', 'parent test1 received');
+                    connection2.trigger('test1', 'parent test1 received');
+                    connection3.trigger('test1', 'parent test1 received');
+                    connection4.trigger('test2', 'parent test2 received');
+                }, 500);
+            });
+        </script>
+
+    <!--Styles-->
+        <style type="text/css">
+            .console {
+                border: 1px solid #f0b1b7;
+                margin: 0 20px 20px;
+                min-height: 80px;
+                padding: 10px;
+            }
+
+            .iframe {
+                border: 1px solid #ccc;
+                float: left;
+                height: 300px;
+                margin: 20px;
+                padding: 0;
+                width: 300px;
+            }
+        </style>
+</head>
+<body>
+    <div class="iframeCont">
+        <iframe class="iframe" id="iframe1" src="iframe1.html"></iframe>
+        <iframe class="iframe" id="iframe2" src="iframe2.html"></iframe>
+        <iframe class="iframe" id="iframe3" src="iframe3.html"></iframe>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="console" id="console"></div>
+</body>
+</html>

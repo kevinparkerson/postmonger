@@ -207,13 +207,12 @@
     Session = Postmonger.Session = function(){
         var addEventListener = _window.addEventListener || _window.attachEvent;
         var args = (arguments.length>0) ? Array.prototype.slice.call(arguments, 0) : [{}];
-        var connections = {};
-        var froms = {};
+        var connections = [];
         var incoming = new Events();
         var outgoing = new Events();
         var removeEventListener = _window.removeEventListener || _window.detachEvent;
         var self = this;
-        var connection, i, l, key, postMessageListener;
+        var connection, i, j, l, ln, postMessageListener;
 
         //Session API hooks
         self.on = incoming.on;
@@ -230,10 +229,18 @@
         for(i=0, l=args.length; i<l; i++){
             connection = new Connection(args[i]);
             if(connection){
-                key = 'f: ' + connection.from + '  t: ' + connection.to;
-                if(!(connections[key] && (connections[key].connect === connection.connect))){
-                    connections[key] = connection;
-                    froms[connection.from] = true;
+                for(j=0, ln=connections.length; j<ln; j++){
+                    if(
+                        connections[j].connect===connection.connect &&
+                        connections[j].from===connection.from &&
+                        connections[j].to===connection.to
+                    ){
+                        connection = null;
+                        break;
+                    }
+                }
+                if(connection){
+                    connections.push(connection);
                 }
             }
         }
@@ -248,31 +255,48 @@
 
         //Listener for incoming messages
         postMessageListener = function(event){
+            var conn = null;
             var message = [];
             var data;
-            var k;
+            var k, len;
 
+            //Attempt to find the connection we're dealing with
+            for(k=0, len=connections.length; k<len; k++){
+                if(connections[k].connect===event.source){
+                    conn = connections[k];
+                    break;
+                }
+            }
+
+            //Check if we've found the connection
+            if(!conn){
+                return false;
+            }
+
+            //Check if the message is from the expected origin
+            if(conn.from!=='*' && conn.from!==event.origin){
+                return false;
+            }
+
+            //Check the data that's been passed
             try{
                 data = JSON.parse(event.data);
+                if(!data.e){
+                    return false;
+                }
             }catch(e){
                 return false;
             }
 
-            if(!froms['*'] && !froms[event.origin]){
-                return false;
-            }
-
-            if(!data.e){
-                return false;
-            }
+            //Format the passed in data
             message.push(data.e);
             delete data.e;
-
             for(k in data){
                 message.push(data[k]);
             }
 
-            incoming['trigger'].apply(root,message);
+            //Send the message
+            incoming['trigger'].apply(root, message);
         };
         //Add the listener
         _window.addEventListener('message', postMessageListener, false);
@@ -281,15 +305,15 @@
         outgoing.on('all', function(){
             var args = Array.prototype.slice.call(arguments, 0);
             var message = {};
-            var k;
+            var k, len;
 
-            message.e = args.shift();
+            message.e = args[0];
 
-            for(i=0, l=args.length; i<l; i++){
-                message['z' + (i+1)] = args[i];
+            for(k=1, len=args.length; k<len; k++){
+                message['a' + k] = args[k];
             }
 
-            for(k in connections){
+            for(k=0, len=connections.length; k<len; k++){
                 connections[k].connect.postMessage(JSON.stringify(message), connections[k].to);
             }
         });
