@@ -1,5 +1,5 @@
 /*
- * Postmonger.js   version 0.0.11
+ * Postmonger.js   version 0.0.12
  * https://github.com/kevinparkerson/postmonger
  *
  * Copyright (c) 2012-2013 Kevin Parkerson
@@ -11,7 +11,7 @@
 
 (function(root, factory){
     if(typeof define === 'function' && define.amd) {
-        define([], function(){ return factory(root); });
+        define('postmonger', [], function(){ return factory(root); });
     }else {
         root.Postmonger = factory(root);
     }
@@ -34,7 +34,7 @@
         root.Postmonger = previous;
         return this;
     };
-    Postmonger.version = '0.0.10';
+    Postmonger.version = '0.0.12';
 
     //Create a new Postmonger Connection
     Connection = Postmonger.Connection = function(options){
