@@ -1,8 +1,8 @@
 /*
- * Postmonger.js   version 0.0.12
+ * Postmonger.js   version 0.0.13
  * https://github.com/kevinparkerson/postmonger
  *
- * Copyright (c) 2012-2013 Kevin Parkerson
+ * Copyright (c) 2012-2014 Kevin Parkerson
  * Available via the MIT or new BSD license.
  * Further details and documentation:
  * http://kevinparkerson.github.com/postmonger/
