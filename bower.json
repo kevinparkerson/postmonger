@@ -1,5 +1,4 @@
 {
-	"dependencies": {},
 	"ignore": [
 		"bower.json",
 		"dev",
@@ -14,7 +13,6 @@
 		"communication",
 		"web"
 	],
-	"main": [],
 	"name": "postmonger",
 	"version": "0.0.13"
 }
