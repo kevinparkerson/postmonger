@@ -1,0 +1,20 @@
+{
+	"dependencies": {},
+	"ignore": [
+		"dev",
+		".gitignore",
+		"bower.json",
+		"README.md"
+	],
+	"keywords": [
+		"postmonger",
+		"front end",
+		"post message",
+		"cross domain",
+		"communication",
+		"web"
+	],
+	"main": [],
+	"name": "postmonger",
+	"version": "0.0.13"
+}
