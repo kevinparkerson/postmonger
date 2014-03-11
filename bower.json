@@ -1,9 +1,9 @@
 {
 	"dependencies": {},
 	"ignore": [
+		"bower.json",
 		"dev",
 		".gitignore",
-		"bower.json",
 		"README.md"
 	],
 	"keywords": [
