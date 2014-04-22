@@ -1,5 +1,5 @@
 /*
- * Postmonger.js   version 0.0.13
+ * Postmonger.js   version 0.1.0
  * https://github.com/kevinparkerson/postmonger
  *
  * Copyright (c) 2012-2014 Kevin Parkerson
