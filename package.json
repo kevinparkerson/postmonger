@@ -1,0 +1,30 @@
+{
+  "name": "postmonger",
+  "version": "0.0.13",
+  "description": "An ultra-lightweight Javascript utility for simplified cross-domain messaging.",
+  "main": "postmonger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinparkerson/postmonger.git"
+  },
+  "keywords": [
+    "postmonger",
+    "front",
+    "end",
+    "post",
+    "message",
+    "cross",
+    "domain",
+    "communication",
+    "web"
+  ],
+  "author": "Kevin Parkerson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinparkerson/postmonger/issues"
+  },
+  "homepage": "http://kevinparkerson.github.io/postmonger/"
+}
