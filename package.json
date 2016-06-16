@@ -1,0 +1,26 @@
+{
+	"name": "postmonger",
+	"humanReadableName": "Postmonger",
+	"description": "An ultra-lightweight Javascript utility for simplified cross-domain messaging.",
+	"version": "0.0.14",
+	"contributors": [
+		{
+			"name": "Kevin Parkerson",
+			"email": "kparkerson@salesforce.com"
+		}
+	],
+	"license": "BSD-3-Clause",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:kevinparkerson/postmonger.git"
+	},
+	"private": true,
+	"engines": {
+		"node": ">=4.4.0"
+	},
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {},
+	"peerDependencies": {},
+	"components": []
+}

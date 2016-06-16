@@ -2,8 +2,7 @@
 
 An ultra-lightweight Javascript utility for simplified cross-domain messaging.
 
-For docs, examples, and more see:
-http://kevinparkerson.github.com/postmonger/
+For docs, examples, and more see the dev folder. I haven't written any docs :D
 
 To suggest a feature, report a bug, or general discussion:
 https://github.com/kevinparkerson/postmonger/issues
