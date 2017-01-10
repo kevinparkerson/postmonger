@@ -1,5 +1,5 @@
 {
-  "name": "postmonger",
+  "name": "vis-postmonger",
   "version": "0.0.13",
   "description": "An ultra-lightweight Javascript utility for simplified cross-domain messaging.",
   "main": "postmonger.js",
