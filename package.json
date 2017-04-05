@@ -3,6 +3,7 @@
 	"humanReadableName": "Postmonger",
 	"description": "An ultra-lightweight Javascript utility for simplified cross-domain messaging.",
 	"version": "0.0.14",
+	"main": "postmonger.js",
 	"contributors": [
 		{
 			"name": "Kevin Parkerson",
@@ -14,7 +15,6 @@
 		"type": "git",
 		"url": "git@github.com:kevinparkerson/postmonger.git"
 	},
-	"private": true,
 	"engines": {
 		"node": ">=4.4.0"
 	},
